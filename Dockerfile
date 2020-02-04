@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     && printf "\n" | pecl install amqp \
     && printf "\n" | pecl install ssh2-0.13 \
     && printf "\n" | pecl install https://xdebug.org/files/xdebug-2.5.5.tgz \
-    && docker-php-ext-enable memcached memcache redis mongo mongodb amqp ssh2 xdebug \
+    && printf "\n" | pecl install rar \
+    && docker-php-ext-enable memcached memcache redis mongo mongodb amqp ssh2 xdebug rar \
     && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql mysql mysqli intl zip soap gd xsl pcntl sockets \
     && chmod 777 /var/log
