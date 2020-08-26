@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && printf "\n" | pecl install memcache-2.2.7 \
     && printf "\n" | pecl install redis-4.3.0 \
     && printf "\n" | pecl install mongo \
-    && printf "\n" | pecl install mongodb \
+    && printf "\n" | pecl install mongodb-1.7.5 \
     && printf "\n" | pecl install amqp \
     && printf "\n" | pecl install ssh2-0.13 \
     && printf "\n" | pecl install https://xdebug.org/files/xdebug-2.5.5.tgz \
