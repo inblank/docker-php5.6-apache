@@ -1,6 +1,6 @@
 FROM php:5.6-apache
 RUN apt-get update && apt-get install -y \
-        libfreetype6-dev libjpeg62-turbo-dev libpng-dev libicu-dev libmemcached-dev libbz2-dev libssl-dev librabbitmq-dev libxml2-dev libxslt1.1 libxslt1-dev libzip-dev libpq-dev libssh2-1-dev libtidy-dev unzip libc-client-dev libkrb5-dev git \
+        libfreetype6-dev libjpeg62-turbo-dev libpng-dev libicu-dev libmemcached-dev libbz2-dev libssl-dev librabbitmq-dev libxml2-dev libxslt1.1 libxslt1-dev libzip-dev libpq-dev libssh2-1-dev libtidy-dev unzip libc-client-dev libkrb5-dev libmcrypt-dev git \
     && a2enmod rewrite \
     && docker-php-ext-configure zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     && printf "\n" | pecl install rar \
     && printf "\n" | pecl install dbase-5.1.1 \
     && docker-php-ext-enable memcached memcache redis mongo mongodb amqp ssh2 rar dbase \
-    && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql mysql mysqli pdo_pgsql intl zip soap gd xsl pcntl sockets imap tidy \
+    && docker-php-ext-install bcmath bz2 calendar exif opcache pdo_mysql mysql mysqli pdo_pgsql intl zip soap gd xsl pcntl sockets imap tidy mcrypt \
     && a2enmod ssl \
     && chmod 777 /var/log
 # Build xdebug manually to avoid a debian compiler bug https://github.com/docker-library/php/issues/133
